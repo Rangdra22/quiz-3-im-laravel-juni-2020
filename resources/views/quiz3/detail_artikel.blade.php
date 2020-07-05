@@ -8,10 +8,15 @@
       </div>
       <div class="card-body">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Judul: {{$artikel->judul}}</li>
-        <li class="list-group-item">Isi: {{$artikel->isi}}</li>
+        <li class="list-group-item">Judul Artikel: <br> {{$artikel->judul}}</li>
         <li class="list-group-item">Slug: {{$artikel->slug}}</li>
-        <li class="list-group-item">Tag: {{$artikel->tag}}</li>
+        <li class="list-group-item">Isi Artikel: <br> {{$artikel->isi}}</li>
+        <ul style="display: flex">
+          <li class="list-group-item"><button class="btn btn-success">{{$artikel->tag}}</button></li>
+          <li class="list-group-item"><button class="btn btn-success">{{$artikel->tag}}</button></li>
+          <li class="list-group-item"><button class="btn btn-success">{{$artikel->tag}}</button></li>
+        </ul>
+        
       </ul>
       </div>
     </div>

@@ -11,8 +11,7 @@
     <table class="table table-bordered mt-2" >
         <thead>
             <th>No</th>
-            <th>Judul</th>
-            <th>Isi</th>
+            <th>Judul Artikel</th>
             <th>Tag</th>
             <th>Detail Artikel</th>
             <th>Actions</th>
@@ -22,21 +21,20 @@
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $art->judul }}</td>
-                <td>{{ $art->isi }}</td>
                 <td>{{ $art->tag }}</td>
                 <td>
                     <a href="{{ url('/artikel/'.$art->id)}}">
-                    <button class="btn btn-primary">Detail</button>
+                    <button class="btn btn-primary">Show Artikel</button>
                     </a>
                 </td>
                 <td>
                     <a href="{{ url('/artikel/'.$art->id).'/edit'}}">
-                        <button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
                     </a>
                     <form method="POST" action="{{ url('/artikel/'.$art->id) }}" style="display: inline">
                     @csrf
                     {{ method_field('delete') }}
-                        <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                     </form>
                 </td>
             </tr>
@@ -47,13 +45,13 @@
 
 </div>
 @endsection
-<!-- @push('scripts')
+@push('scripts')
 <script>
     Swal.fire({
         title: 'Berhasil!',
         text: 'Memasangkan script sweet alert',
         icon: 'success',
         confirmButtonText: 'Cool'
-    });
+    })
 </script>
-@endpush -->
+@endpush

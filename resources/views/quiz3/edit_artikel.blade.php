@@ -9,12 +9,12 @@
    {{ method_field('put') }}
    @csrf
    <input hidden name="id" value="{{ $id}}">
-    <label for="">Judul</label>
+    <label for="">Judul Artikel</label>
     <input class="form-control" type="text" name="judul" value="{{ $artikel->judul }}"> <br>
-    <label for="">Isi</label>
-    <input class="form-control" type="text" name="isi" value="{{ $artikel->isi }}"> <br>
+    <label for="">Isi Artikel</label>
+   <textarea class="form-control" type="text" name="isi" cols="30" rows="10">{{ $artikel->isi}}</textarea> <br>
     <label for="">Slug</label>
-   <input type="text" class="form-control" name="slug" value="{{ $artikel->slug }}">
+   <input type="text" class="form-control" name="slug" value="{{ $artikel->slug }}"> <br>
    <label for="">Tag</label>
    <input type="text" class="form-control" name="tag" value="{{ $artikel->tag }}">
     
