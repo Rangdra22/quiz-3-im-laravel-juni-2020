@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $art->judul }}</td>
-                <td>{{ $art->tag }}</td>
+                <td> <span class="badge badge-success mr-1">{{ $art->tag1 }}</span><span class="badge badge-success mr-1">{{ $art->tag2 }}</span><span class="badge badge-success">{{ $art->tag3 }}</span></td>
                 <td>
                     <a href="{{ url('/artikel/'.$art->id)}}">
                     <button class="btn btn-primary">Show Artikel</button>
@@ -45,6 +45,7 @@
 
 </div>
 @endsection
+
 @push('scripts')
 <script>
     Swal.fire({

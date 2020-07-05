@@ -18,7 +18,9 @@ class CreateArtikelTable extends Migration
             $table->string('judul');
             $table->longtext('isi');
             $table->string('slug');
-            $table->string('tag');
+            $table->string('tag1')->nullable();
+            $table->string('tag2')->nullable();
+            $table->string('tag3')->nullable();
             $table->timestamps();
         });
     }

@@ -8,16 +8,15 @@
       </div>
       <div class="card-body">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Judul Artikel: <br> {{$artikel->judul}}</li>
-        <li class="list-group-item">Slug: {{$artikel->slug}}</li>
+        <li class="list-group-item">Judul Artikel: {{$artikel->judul}}</li>
+        <li class="list-group-item">slug: {{$artikel->slug}}</li>
         <li class="list-group-item">Isi Artikel: <br> {{$artikel->isi}}</li>
-        <ul style="display: flex">
-          <li class="list-group-item"><button class="btn btn-success">{{$artikel->tag}}</button></li>
-          <li class="list-group-item"><button class="btn btn-success">{{$artikel->tag}}</button></li>
-          <li class="list-group-item"><button class="btn btn-success">{{$artikel->tag}}</button></li>
-        </ul>
-        
       </ul>
+      <div class="mt-3 container">
+        <button class="btn btn-success">{{$artikel->tag1}}</button>
+        <button class="btn btn-success">{{$artikel->tag2}}</button>
+        <button class="btn btn-success">{{$artikel->tag3}}</button>
+      </div>
       </div>
     </div>
   </div>
