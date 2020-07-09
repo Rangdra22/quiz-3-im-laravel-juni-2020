@@ -12,7 +12,7 @@
         <thead>
             <th>No</th>
             <th>Judul Artikel</th>
-            <th>Tag</th>
+            <th>Kategori</th>
             <th>Detail Artikel</th>
             <th>Actions</th>
         </thead>
@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $art->judul }}</td>
-                <td> <span class="badge badge-success mr-1">{{ $art->tag }}</span></td>
+                <td>{{ $art->category->name }}</td>
                 <td>
                     <a href="{{ url('/artikel/'.$art->id)}}">
                     <button class="btn btn-primary">Show Artikel</button>

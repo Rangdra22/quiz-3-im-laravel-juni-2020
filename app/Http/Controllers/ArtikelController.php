@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ArtikelModel;
 use App\Artikel;
+use App\Category;
 
 class ArtikelController extends Controller
 {
@@ -16,8 +17,9 @@ class ArtikelController extends Controller
     }
 
     public function create(){
+        $categories= Category::all();
         // dd('test');
-        return view('quiz3.form_artikel');
+        return view('quiz3.form_artikel', compact('categories'));
     }
 
     public function store(Request $request){
@@ -40,8 +42,9 @@ class ArtikelController extends Controller
             "isi" => $request["isi"],
             "slug" => $request["slug"],
             "tag" => $request["tag"],
+            "category_id" => $request["category_id"] 
         ]);
-
+        
         return redirect('/artikel');
     }
 
@@ -53,8 +56,9 @@ class ArtikelController extends Controller
 
     public function edit($id, Request $request){
         $artikel = ArtikelModel::find_by_id($id);
+        $categories = Category::all();
         
-        return view('quiz3.edit_artikel' , compact('artikel', 'id'));
+        return view('quiz3.edit_artikel' , compact('artikel', 'id','categories'));
     }
 
     public function update(Request $request){
@@ -67,7 +71,8 @@ class ArtikelController extends Controller
     }
 
     public function destroy($id){
-        ArtikelModel::delete($id);
+        // ArtikelModel::delete($id);
+        Artikel::destroy($id);
         return redirect('/artikel');
     }
 

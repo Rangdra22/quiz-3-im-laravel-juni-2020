@@ -10,4 +10,12 @@ class Artikel extends Model
 
     protected $guarded = [];
 
+    public function category(){
+        return $this->belongsTo('App\Category');
+    }
+
+    public function tag(){
+        return $this->belongsToMany('App\Tag' ,'artikel_tag' ,'artikel_id','tag_id',);
+    }
+
 }

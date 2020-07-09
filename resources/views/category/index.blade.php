@@ -2,7 +2,7 @@
 @section('content')
 <div class="card">
 <div class="card-header bg-primary text-white h3 mb-2">
-    Daftar Kategori
+    List Category
   </div>
   <div class="container">
   <a href="{{ url('/categories/create') }}">
@@ -11,7 +11,7 @@
     <table class="table table-bordered mt-2" >
         <thead>
             <th>No</th>
-            <th>Nama Kategori</th>
+            <th>Category</th>
         </thead>
         <tbody>
             @foreach($categories as $category)

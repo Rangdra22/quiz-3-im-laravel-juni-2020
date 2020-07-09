@@ -5,7 +5,10 @@ use Illuminate\Support\Facades\DB;
 
 class ArtikelModel {
     public static function get_all(){
-        $items = DB::table('artikel')->get();
+        $items = DB::table('artikel')
+                    ->select('artikel.*','categories.name as category_name', 'categories.id as category_id')
+                    ->join('categories','artikel.category_id', '=', 'categories.id')
+                    ->get();
         return $items;
     }
 

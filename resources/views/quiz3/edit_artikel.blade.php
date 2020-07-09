@@ -15,6 +15,17 @@
    <textarea class="form-control" type="text" name="isi" cols="30" rows="10">{{ $artikel->isi}}</textarea> <br>
     <label for="">Slug</label>
    <input type="text" class="form-control" name="slug" value="{{ $artikel->slug }}"> <br>
+   <label for="category_id">Kategori</label>
+   <select name="category_id" id="category_id" class="form-control">
+      @foreach( $categories as $category)
+      @if ($category->id == $artikel->category_id)
+        <option value="{{ $category->id }}" selected> {{ $category->name }}</option>
+      @else
+        <option value="{{ $category->id }}"> {{ $category->name }}</option>
+      @endif
+        
+      @endforeach
+   </select>
    <label for="">Tags</label>
    <input type="text" class="form-control" name="tag" value="{{ $artikel->tag }}">
     
