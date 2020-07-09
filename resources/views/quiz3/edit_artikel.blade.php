@@ -15,12 +15,8 @@
    <textarea class="form-control" type="text" name="isi" cols="30" rows="10">{{ $artikel->isi}}</textarea> <br>
     <label for="">Slug</label>
    <input type="text" class="form-control" name="slug" value="{{ $artikel->slug }}"> <br>
-   <label for="">Tag 1</label>
-   <input type="text" class="form-control" name="tag1" value="{{ $artikel->tag1 }}">
-   <label for="">Tag 2</label>
-   <input type="text" class="form-control" name="tag2" value="{{ $artikel->tag2 }}">
-   <label for="">Tag 3</label>
-   <input type="text" class="form-control" name="tag3" value="{{ $artikel->tag3 }}">
+   <label for="">Tags</label>
+   <input type="text" class="form-control" name="tag" value="{{ $artikel->tag }}">
     
     <button class="btn btn-success mb-3 mt-3" type="submit">Update Artikel</button>
   </form>

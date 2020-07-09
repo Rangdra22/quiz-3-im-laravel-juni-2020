@@ -13,9 +13,7 @@
         <li class="list-group-item">Isi Artikel: <br> {{$artikel->isi}}</li>
       </ul>
       <div class="mt-3 container">
-        <button class="btn btn-success">{{$artikel->tag1}}</button>
-        <button class="btn btn-success">{{$artikel->tag2}}</button>
-        <button class="btn btn-success">{{$artikel->tag3}}</button>
+        <button class="btn btn-success">{{$artikel->tag}}</button>
       </div>
       </div>
     </div>

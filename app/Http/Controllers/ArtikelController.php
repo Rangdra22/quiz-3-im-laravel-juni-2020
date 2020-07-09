@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ArtikelModel;
+use App\Artikel;
 
 class ArtikelController extends Controller
 {
     public function index(){
-        $artikel = ArtikelModel::get_all();
+        // $artikel = ArtikelModel::get_all();
         // dd($artikel);
+        $artikel = Artikel::all();
         return view('quiz3.artikel', compact('artikel'));
     }
 
@@ -19,9 +21,27 @@ class ArtikelController extends Controller
     }
 
     public function store(Request $request){
-        $data = $request->all();
-        unset($data["_token"]);
-        ArtikelModel::save($data);
+        // $data = $request->all();
+        // unset($data["_token"]);
+        // ArtikelModel::save($data);
+        // return redirect('/artikel');
+
+        // Cara Eloquent
+        // $new_article = new Artikel;
+        // $new_article->judul = $request["judul"];
+        // $new_article->isi = $request["isi"];
+        // $new_article->slug = $request["slug"];
+        // $new_article->tag = $request["tag"];
+
+        // $new_article->save();
+
+        $new_article = Artikel::create([
+            "judul" => $request["judul"],
+            "isi" => $request["isi"],
+            "slug" => $request["slug"],
+            "tag" => $request["tag"],
+        ]);
+
         return redirect('/artikel');
     }
 

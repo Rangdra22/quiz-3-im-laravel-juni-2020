@@ -12,12 +12,8 @@
    <textarea class="form-control" name="isi" id="" cols="30" rows="10"></textarea> <br>
    <label for="">Slug</label>
    <input type="text" class="form-control" name="slug"> <br>
-   <label for="">Tag 1</label>
-   <input type="text" class="form-control" name="tag1">
-   <label for="">Tag 2</label>
-   <input type="text" class="form-control" name="tag2">
-   <label for="">Tag 3</label>
-   <input type="text" class="form-control" name="tag3">
+   <label for="">Tags</label>
+   <input type="text" class="form-control" name="tag">
    <br>
    <button class="btn btn-primary" type="submit">Create</button>
  </form>

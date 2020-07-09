@@ -26,3 +26,5 @@ Route::get('/artikel/{id}', 'ArtikelController@show'); // menampilkan detail Art
 Route::get('/artikel/{id}/edit', 'ArtikelController@edit'); // menampilkan form untuk edit Artikel
 Route::put('/artikel/{id}', 'ArtikelController@update'); // menyimpan perubahan dari form edit
 Route::delete('/artikel/{id}', 'ArtikelController@destroy'); // menghapus data dengan id
+
+Route::resource('categories', 'CategoryController');
