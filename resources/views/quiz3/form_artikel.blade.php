@@ -18,8 +18,8 @@
         <option value="{{ $category->id }}"> {{ $category->name }}</option>
       @endforeach
    </select>
-   <label for="tag">Tags</label>
-   <input type="text" class="form-control" name="tag" id="tag">
+   <label for="tags">Tags</label>
+   <input type="text" class="form-control" name="tags" id="tags">
    <br>
    <button class="btn btn-primary" type="submit">Create</button>
  </form>

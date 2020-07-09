@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ArtikelModel;
 use App\Artikel;
 use App\Category;
+use App\Tag;
 
 class ArtikelController extends Controller
 {
@@ -41,31 +42,52 @@ class ArtikelController extends Controller
             "judul" => $request["judul"],
             "isi" => $request["isi"],
             "slug" => $request["slug"],
-            "tag" => $request["tag"],
             "category_id" => $request["category_id"] 
         ]);
+
+        $tagArr = explode(',', $request->tags);
+        $tagsMulti  = [];
+        foreach($tagArr as $strTag){
+            $tagArrAssc["tag_name"] = $strTag;
+            $tagsMulti[] = $tagArrAssc;
+        }
+        // dd($tagsMulti);
+        // Create Tags baru
+        foreach($tagsMulti as $tagCheck){
+            $tag = Tag::firstOrCreate($tagCheck);
+            $new_article->tags()->attach($tag->id);
+        }
         
         return redirect('/artikel');
     }
 
     public function show($id){
-        $artikel = ArtikelModel::find_by_id($id);
-        // dd($jawabans);
+        // $artikel = ArtikelModel::find_by_id($id);
+        $artikel = Artikel::find($id);
         return view('quiz3.detail_artikel', compact('artikel'));
     }
 
     public function edit($id, Request $request){
-        $artikel = ArtikelModel::find_by_id($id);
+        // $artikel = ArtikelModel::find_by_id($id);
+        $artikel = Artikel::find($id);
         $categories = Category::all();
         
         return view('quiz3.edit_artikel' , compact('artikel', 'id','categories'));
     }
 
-    public function update(Request $request){
-        $data = $request->all();
-        unset($data["_token"]);
-        unset($data["_method"]);
-        $artikel = ArtikelModel::update($data);
+    public function update($id, Request $request){
+        // $data = $request->all();
+        // unset($data["_token"]);
+        // unset($data["_method"]);
+        // $artikel = ArtikelModel::update($data);
+        $artikel = Artikel::find($id);
+        $artikel->judul = $request["judul"];
+        $artikel->isi = $request["isi"];
+        $artikel->category_id = $request["category_id"];
+        $artikel->slug = $request["slug"];
+
+        $artikel->save();
+
         // dd($data);
         return redirect('/artikel');
     }

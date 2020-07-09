@@ -11,9 +11,12 @@
         <li class="list-group-item">Judul Artikel: {{$artikel->judul}}</li>
         <li class="list-group-item">slug: {{$artikel->slug}}</li>
         <li class="list-group-item">Isi Artikel: <br> {{$artikel->isi}}</li>
+        <li class="list-group-item">Kategory: <br> {{ $artikel->category->name }}</li>
       </ul>
       <div class="mt-3 container">
-        <button class="btn btn-success">{{$artikel->tag}}</button>
+        @foreach($artikel->tags as $tag)
+        <button class="btn btn-success btn-sm">{{$tag->tag_name}}</button>
+        @endforeach
       </div>
       </div>
     </div>
