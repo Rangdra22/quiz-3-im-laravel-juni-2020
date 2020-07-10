@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
 <div class="card-header bg-primary text-white h3 mb-2">
-    Daftar Artikel
+    List of Articles
   </div>
   <div class="container">
   <a href="{{ url('/artikel/create') }}">
@@ -12,9 +12,9 @@
     <table class="table table-bordered mt-2" >
         <thead>
             <th>No</th>
-            <th>Judul Artikel</th>
-            <th>Kategori</th>
-            <th>Detail Artikel</th>
+            <th>Article Title</th>
+            <th>Category</th>
+            <th>Article Detail</th>
             <th>Actions</th>
         </thead>
         <tbody>
@@ -25,17 +25,17 @@
                 <td>{{ $art->category->name }}</td>
                 <td>
                     <a href="{{ url('/artikel/'.$art->id)}}">
-                    <button class="btn btn-primary">Show Artikel</button>
+                    <button class="btn btn-primary">Show Article</button>
                     </a>
                 </td>
                 <td>
                     <a href="{{ url('/artikel/'.$art->id).'/edit'}}">
-                        <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                    </a>
+                        <button class="btn btn-warning btn-sm"><i class="fas fa-edit">edit</i></button>
+                    </a> |
                     <form method="POST" action="{{ url('/artikel/'.$art->id) }}" style="display: inline">
                     @csrf
                     {{ method_field('delete') }}
-                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash">delete</i></button>
                     </form>
                 </td>
             </tr>

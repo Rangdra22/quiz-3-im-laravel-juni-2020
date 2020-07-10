@@ -10,7 +10,7 @@
   <meta name="author" content="">
 
   <title>@yield('title')</title>
-
+  @stack('script-head')
   <!-- Custom fonts for this template-->
   <link href="{{ asset('/sbadmin2/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -39,7 +39,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Artikel</h1>
+          <h1 class="h3 mb-4 text-gray-800">Article</h1>
           @yield('content')
         </div>
         <!-- /.container-fluid -->
@@ -101,6 +101,7 @@
 
   <!-- script tambahan sweet alert, bukan dari bawaan sb-admin-2 -->
   @stack('scripts')
+  @include('sweetalert::alert')
 
   <script src="{{ asset('/sbadmin2/js/swal.min.js') }}"></script>
 

@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in! <br><br>
+                    <a href="{{ url('/artikel') }}" class="btn btn-primary">Lihat Artikel</a>
                 </div>
             </div>
         </div>

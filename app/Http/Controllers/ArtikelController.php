@@ -7,6 +7,8 @@ use App\Models\ArtikelModel;
 use App\Artikel;
 use App\Category;
 use App\Tag;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class ArtikelController extends Controller
 {
@@ -58,6 +60,8 @@ class ArtikelController extends Controller
             $new_article->tags()->attach($tag->id);
         }
         
+        Alert::success('Berhasil', 'Berhasil membuat artikel baru');
+
         return redirect('/artikel');
     }
 
@@ -89,12 +93,16 @@ class ArtikelController extends Controller
         $artikel->save();
 
         // dd($data);
+        Alert::success('Sukses Update', 'Artikel Berhasil Di Update');
         return redirect('/artikel');
     }
 
     public function destroy($id){
         // ArtikelModel::delete($id);
         Artikel::destroy($id);
+
+        Alert::success('Item Terhapus', 'Berhasil Menghapus Item');
+
         return redirect('/artikel');
     }
 

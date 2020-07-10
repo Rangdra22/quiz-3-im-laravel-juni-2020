@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ArtikelModel;
 use App\Category;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
 {
@@ -41,6 +42,7 @@ class CategoryController extends Controller
             "name" => $request["name"]
         ]);
 
+        Alert::success('Berhasil', 'Berhasil membuat kategori baru');
         return redirect('/categories');
     }
 
@@ -81,6 +83,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->save();
 
+        Alert::success('Berhasil', 'Berhasil mengupdate kategori');
         return redirect('/categories');
     }
 
@@ -93,6 +96,8 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         Category::destroy($id);
+
+        Alert::success('Berhasil', 'Berhasil menghapus kategori');
         return redirect('/categories');
     }
 }

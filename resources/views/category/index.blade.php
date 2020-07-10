@@ -1,9 +1,9 @@
 @extends('layouts.master')
-@section('title', 'Category | Rangdra Web')
+@section('title', 'Categories | Rangdra Web')
 @section('content')
 <div class="card">
 <div class="card-header bg-primary text-white h3 mb-2">
-    List Category
+    List of Categories
   </div>
   <div class="container">
   <a href="{{ url('/categories/create') }}">
@@ -22,12 +22,12 @@
                 <td>{{ $category->name}}</td>
                 <td>
                 <a href="{{ url('/categories/'.$category->id).'/edit'}}">
-                        <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-warning btn-sm"><i class="fas fa-edit">edit</i></button>
                     </a>
                 <form method="POST" action="{{ url('/categories/'.$category->id) }}" style="display: inline">
                     @csrf
                     @method('delete')
-                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash">delete</i></button>
                     </form>
                 </td>
             </tr>
