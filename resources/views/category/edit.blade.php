@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', 'Edit Category | Rangdra Web')
 @section('content')
 <div class="card">
 <div class="card-header bg-primary text-white h3 mb-2">

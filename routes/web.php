@@ -12,19 +12,27 @@
 */
 
 Route::get('/', function () {
-    return view('quiz3.erd');
+    return view('welcome');
 });
 
 Route::get('/master', function () {
     return view('layouts.master');
 });
-Route::get('/artikel', 'ArtikelController@index'); // menampilkan semua
-Route::get('/artikel/create', 'ArtikelController@create'); // menampilkan halaman form
-Route::post('/artikel', 'ArtikelController@store'); // menyimpan data
 
-Route::get('/artikel/{id}', 'ArtikelController@show'); // menampilkan detail Artikel dengan id 
-Route::get('/artikel/{id}/edit', 'ArtikelController@edit'); // menampilkan form untuk edit Artikel
-Route::put('/artikel/{id}', 'ArtikelController@update'); // menyimpan perubahan dari form edit
-Route::delete('/artikel/{id}', 'ArtikelController@destroy'); // menghapus data dengan id
+Route::group(['middleware' => 'auth'], function(){
 
-Route::resource('categories', 'CategoryController');
+    Route::get('/artikel', 'ArtikelController@index'); // menampilkan semua
+    Route::get('/artikel/create', 'ArtikelController@create'); // menampilkan halaman form
+    Route::post('/artikel', 'ArtikelController@store'); // menyimpan data
+
+    Route::get('/artikel/{id}', 'ArtikelController@show'); // menampilkan detail Artikel dengan id 
+    Route::get('/artikel/{id}/edit', 'ArtikelController@edit'); // menampilkan form untuk edit Artikel
+    Route::put('/artikel/{id}', 'ArtikelController@update'); // menyimpan perubahan dari form edit
+    Route::delete('/artikel/{id}', 'ArtikelController@destroy'); // menghapus data dengan id
+
+    Route::resource('categories', 'CategoryController');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

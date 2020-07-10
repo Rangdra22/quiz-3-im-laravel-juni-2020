@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', 'Detail Artikel | Rangdra Web')
 @section('content')
 <div class="row">
   <div class="col-sm-12">

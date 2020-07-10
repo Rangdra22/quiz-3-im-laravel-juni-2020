@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', 'Category | Rangdra Web')
 @section('content')
 <div class="card">
 <div class="card-header bg-primary text-white h3 mb-2">
@@ -12,6 +13,7 @@
         <thead>
             <th>No</th>
             <th>Category</th>
+            <th>Actions</th>
         </thead>
         <tbody>
             @foreach($categories as $category)

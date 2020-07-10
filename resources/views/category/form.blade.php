@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@section('title', 'Tambah Category | Rangdra Web')
 @section('content')
 <div class="ml-3 mt-3">
   <form action="/categories" method="post">
